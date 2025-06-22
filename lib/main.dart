@@ -1,34 +1,12 @@
 import 'package:flutter/material.dart';
 
 void main(){
-  runApp(ListaTarefasApp());
+  runApp(TodoListApp());
 }
 
-Widget getItem(){
-  return Row(
-    crossAxisAlignment: CrossAxisAlignment.center,
-    children: [
-      IconButton(
-        onPressed: (){},
-        iconSize: 50,
-        icon: Icon(
-          Icons.check_box,
-          color: const Color.fromARGB(255, 129, 50, 163),
-        )),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text("Lavar o carro"),
-            Text("Data: 22/06/2025"),
-          ],
-        )
-    ],
-  );
-}
+class ListaScreenState extends State<ListaScreen>{
 
-class ListaScreen extends StatelessWidget{
-  
-   @override
+@override
   Widget build(BuildContext context) {
     
     return MaterialApp(
@@ -54,14 +32,45 @@ class ListaScreen extends StatelessWidget{
       ),
     );
   }
+}
+
+Widget getItem(){
+  return Row(
+    crossAxisAlignment: CrossAxisAlignment.center,
+    children: [
+      IconButton(
+        onPressed: (){},
+        iconSize: 50,
+        icon: Icon(
+          Icons.check_box,
+          color: const Color.fromARGB(255, 129, 50, 163),
+        )),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text("Lavar o carro"),
+            Text("Data: 22/06/2025"),
+          ],
+        )
+    ],
+  );
+}
+
+class ListaScreen extends StatefulWidget{
+
+  @override
+  State<StatefulWidget> createState() {
+    return ListaScreenState();
+  }
 
 }
 
-class ListaTarefasApp extends StatelessWidget{
+class TodoListApp extends StatelessWidget{
   
   @override
   Widget build(BuildContext context) {
     return ListaScreen();
+    // linha 60, ver como isso Vamos adicionar também o title "title: 'TodoList App'," no build(). ???
   }
 
  
